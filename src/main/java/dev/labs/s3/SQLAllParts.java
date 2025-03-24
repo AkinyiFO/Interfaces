@@ -31,4 +31,18 @@ interface SQLAllParts {
     enum SQLOperation {
         SELECT, INSERT, UPDATE, DELETE
     }
+
+    // Nested interface for transaction management
+    interface TransactionHandler {
+        void beginTransaction();
+        void commitTransaction();
+        void rollbackTransaction();
+    }
+
+    // Nested static class providing default configurations
+    class DefaultConfig {
+        static String getDefaultSchema() {
+            return "public";
+        }
+    }
 }
